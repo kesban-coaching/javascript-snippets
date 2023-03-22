@@ -13,10 +13,24 @@ const product = {
 
 const productCopy = { 
   ...product, // COPY original
-  price: product.price + 100,
+  price: Number((product.price * 1.1).toFixed(2)),
   rebate: "10%"
 }
 
 // CHECK
 console.log(product) // Original not changed
 console.log(productCopy) // only copy changed
+
+const addMilk = (product) => {
+  return {...product, milk: true}
+}
+
+const increasePrice = (product, upcount) => {
+  return { ...product, price: product.price + upcount  }
+}
+
+const productCopy2 = addMilk(product)
+console.log(productCopy2)
+
+const productCopy3 = increasePrice(productCopy2, 50)
+console.log(productCopy3)
